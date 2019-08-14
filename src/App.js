@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getUsers } from './services/api';
 
 const App = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await getUsers();
+      setUsers(data);
+    })();
+  }, []);
+
   return (
     <div>
-      <h1>Hello world!</h1>
+      {
+        users.map(user => (
+          <div key={user.login}>
+            <h6>{user.login}</h6>
+          </div>
+        ))
+      }
     </div>
   );
 }
