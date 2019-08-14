@@ -8,7 +8,6 @@ const Button = styled.button`
   cursor: pointer;
   font-family: courier new;
   font-size: 12px;
-  outline: 0;
   padding: 5px 10px;
 
   &:hover {
