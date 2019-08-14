@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components'
 import { getUsers } from './services/api';
 import User from './components/User';
+
+const Main = styled.div`
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -13,7 +24,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <Main>
       {
         users.map(user => (
           <User
@@ -23,7 +34,7 @@ const App = () => {
           />
         ))
       }
-    </div>
+    </Main>
   );
 }
 
