@@ -9,12 +9,13 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 10%;
+  width: 12%;
 
   h1 {
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
+    font-family: courier new;
   }
 
   img {
@@ -22,12 +23,35 @@ const Card = styled.div`
     max-height: 80px;
     border-radius: 50%;
   }
+
+  button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: transparent;
+    color: #fff;
+    font-family: courier new;
+    outline: 0;
+
+    &:hover {
+      font-weight: bold;
+      transform: translateY(2px);
+      transition: all 0.2s;
+    }
+  }
 `;
 
 const User = ({ login, avatar_url }) => (
   <Card>
     <h1>{login}</h1>
     <img src={avatar_url} alt={login}/>
+    <a href={`https://github.com/${login}`} target='blank'>
+      <button>ver mais</button>
+    </a>
   </Card>
 );
 
